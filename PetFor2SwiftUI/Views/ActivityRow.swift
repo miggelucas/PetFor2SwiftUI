@@ -8,15 +8,16 @@
 import SwiftUI
 
 struct ActivityRow: View {
-    var activity : Activity
+    @State var activity : Activity
+
     
     var body: some View {
         HStack(alignment: .center, spacing: 5){
             Button(action: {
-                print("Orange button pressed for \(activity.name)")
+                activity.teamButtonTapped(team: .orange)
             }) {
                 Image(systemName: "moonphase.new.moon")
-                    .foregroundColor(.orange)
+                    .foregroundColor(activity.orangeActive ? .orange : .gray)
             }
             
             Spacer()
@@ -27,12 +28,14 @@ struct ActivityRow: View {
             Spacer()
             
             Button(action: {
-                print("blue button pressed for \(activity.name)")
+                activity.teamButtonTapped(team: .blue)
+                
             }) {
                 Image(systemName: "moonphase.new.moon")
-                    .foregroundColor(.blue)
+                    .foregroundColor(activity.blueActive ? .blue : .gray)
             }
         }
+        .padding()
     }
 }
 

@@ -16,8 +16,13 @@ struct ActivitiesView: View {
             Text("Atividades")
                 .font(.title)
                 .bold()
-            List(activtiesList) { activity in
-                ActivityRow(activity: activity)
+
+            ScrollView {
+                VStack {
+                    ForEach(activtiesList) { activity in
+                        ActivityRow(activity: activity)
+                    }
+                }
             }
 
         }

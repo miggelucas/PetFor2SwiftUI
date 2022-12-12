@@ -12,6 +12,30 @@ struct Activity : Identifiable {
     var name : String
     var team : Team
     
+    var blueActive : Bool {
+        if team == .blue {
+            return true
+        } else {
+            return false
+        }
+    }
+    
+    var orangeActive : Bool {
+        if team == .orange {
+            return true
+        } else {
+            return false
+        }
+    }
+    
+    mutating func teamButtonTapped(team teamIncoming : Team) {
+        if team == teamIncoming {
+            team = .none
+        } else {
+            team = teamIncoming
+        }
+    }
+    
     static func populate() -> [Activity] {
         return [
             Activity(name: "Passear com o cachorro", team: .none),
