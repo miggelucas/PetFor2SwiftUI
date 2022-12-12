@@ -16,8 +16,8 @@ struct ActivitiesView: View {
             Text("Atividades")
                 .font(.title)
                 .bold()
-            List(activtiesList) { list in
-                /*@START_MENU_TOKEN@*/Text(list.name)/*@END_MENU_TOKEN@*/
+            List(activtiesList) { activity in
+                ActivityRow(activity: activity)
             }
 
         }

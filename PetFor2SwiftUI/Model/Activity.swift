@@ -17,8 +17,9 @@ struct Activity : Identifiable {
             Activity(name: "Passear com o cachorro", team: .none),
             Activity(name: "Limpar caixinha de areia", team: .none),
             Activity(name: "Comprar ração", team: .none),
-            Activity(name: "", team: .none),
-            Activity(name: "", team: .none)
+            Activity(name: "Comprar remédio", team: .none),
+            Activity(name: "Dar remédio para o cachorro", team: .none),
+            Activity(name: "Oferecer bola anti-stress para o bixino ao menos 3 vezes no dia", team: .none),
         ]
     }
 }
