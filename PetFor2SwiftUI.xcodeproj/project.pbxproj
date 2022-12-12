@@ -48,6 +48,14 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		17D0A5B92946CD86001EF4A5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				17D0A5B72946CB8C001EF4A5 /* Activity.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		17EDC9F3294512A2001CD841 = {
 			isa = PBXGroup;
 			children = (
@@ -69,7 +77,7 @@
 			children = (
 				17EDC9FF294512A2001CD841 /* PetFor2SwiftUIApp.swift */,
 				17EDCA01294512A2001CD841 /* ContentView.swift */,
-				17D0A5B72946CB8C001EF4A5 /* Activity.swift */,
+				17D0A5B92946CD86001EF4A5 /* Model */,
 				17D0A5B62946CB6D001EF4A5 /* Views */,
 				17EDCA03294512A4001CD841 /* Assets.xcassets */,
 				17EDCA08294512A4001CD841 /* Persistence.swift */,

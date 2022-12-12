@@ -8,13 +8,18 @@
 import SwiftUI
 
 struct ActivitiesView: View {
+    
+    @State var activtiesList : [Activity] = Activity.populate()
+ 
     var body: some View {
         VStack {
             Text("Atividades")
                 .font(.title)
                 .bold()
-            
-            Spacer()
+            List(activtiesList) { list in
+                /*@START_MENU_TOKEN@*/Text(list.name)/*@END_MENU_TOKEN@*/
+            }
+
         }
         .padding()
     }
