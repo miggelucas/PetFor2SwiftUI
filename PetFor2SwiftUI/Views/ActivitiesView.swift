@@ -9,30 +9,37 @@ import SwiftUI
 
 struct ActivitiesView: View {
     
-    @State var activtiesList : [Activity] = Activity.populate()
- 
+    @StateObject var activityManager : ActivityManager
+    @State var showingNewActivity : Bool
+    
     var body: some View {
-        VStack {
-            Text("Atividades")
-                .font(.title)
-                .bold()
-
+        NavigationView {
+            
             ScrollView {
                 VStack {
-                    ForEach(activtiesList) { activity in
+                    ForEach(activityManager.activities) { activity in
                         ActivityRow(activity: activity)
                     }
                 }
             }
-
+            .padding()
+            .navigationTitle("Atividades")
+            .toolbar {
+                Button(action: {
+                    print("Pressed me")
+                }) {
+                    Image(systemName: "plus")
+                }
+            }
         }
-        .padding()
     }
     
 }
 
 struct Activities_Previews: PreviewProvider {
+    static var activityManager = ActivityManager()
     static var previews: some View {
-        ActivitiesView()
+        ActivitiesView(activityManager: activityManager, showingNewActivity: false)
+        
     }
 }
