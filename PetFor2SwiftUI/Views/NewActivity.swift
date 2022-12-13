@@ -16,6 +16,24 @@ struct NewActivity: View {
     var body: some View {
         NavigationView {
             VStack {
+                HStack {
+                    Button("Cancelar", role: .cancel) {
+                        showingNewActivity.toggle()
+                    }
+                    
+                    Spacer()
+                    
+                    Button {
+                        let newActivity = Activity(name: activityName, team: .none)
+                        activityManager.activities.append(newActivity)
+                        showingNewActivity.toggle()
+                        
+                    } label: {
+                        Text("Adicionar")
+                    }
+                    
+                }
+                
                 Text("Nova atividade")
                     .font(.headline)
                 
@@ -26,18 +44,6 @@ struct NewActivity: View {
                 
             }
             .padding()
-            .navigationTitle("Adicionar atividade")
-            .toolbar {
-                Button {
-                    let newActivity = Activity(name: activityName, team: .none)
-                    activityManager.activities.append(newActivity)
-                    showingNewActivity.toggle()
-                    
-                } label: {
-                    Text("Adicionar")
-                }
-
-            }
         }
     }
 }
