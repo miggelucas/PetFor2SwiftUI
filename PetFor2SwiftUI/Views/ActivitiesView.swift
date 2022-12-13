@@ -17,12 +17,15 @@ struct ActivitiesView: View {
             ScrollView {
                 VStack {
                     ForEach(activityManager.activities) { activity in
-                        ActivityRow(activity: activity)
+                        ActivityRow(activity: activity, actionMenu: {
+                            activityManager.removeActivity(activity: activity)
+                        })
                     }
                 }
             }
             .padding()
             .navigationTitle("Atividades")
+            
             .toolbar {
                 Button(action: {
                     showingNewActivity.toggle()
@@ -30,14 +33,16 @@ struct ActivitiesView: View {
                     Image(systemName: "plus")
                 }
             }
+            
             .sheet(isPresented: $showingNewActivity) {
                 NewActivity(showingNewActivity: $showingNewActivity)
                     .environmentObject(activityManager)
             }
         }
     }
-    
 }
+
+
 
 struct Activities_Previews: PreviewProvider {
     static var activityManager = ActivityManager()

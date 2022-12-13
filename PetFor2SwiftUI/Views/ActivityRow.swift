@@ -7,9 +7,12 @@
 
 import SwiftUI
 
+typealias handlerAction = (() -> ())
+
 struct ActivityRow: View {
     @State var activity : Activity
 
+    var actionMenu : handlerAction
     
     var body: some View {
         HStack(alignment: .center, spacing: 5){
@@ -21,9 +24,14 @@ struct ActivityRow: View {
             }
             
             Spacer()
+            Menu(activity.name) {
+                Button("Excluir atividade", role: .destructive) {
+                 actionMenu()
+                }
+            }
+            .font(.headline)
+            .foregroundColor(.black)
             
-            Text(activity.name)
-                .font(.headline)
             
             Spacer()
             
@@ -42,6 +50,6 @@ struct ActivityRow: View {
 struct ActivityRow_Previews: PreviewProvider {
     static var activities = Activity.populate()
     static var previews: some View {
-        ActivityRow(activity: activities[0])
+        ActivityRow(activity: activities[0], actionMenu: {})
     }
 }

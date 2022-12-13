@@ -11,5 +11,9 @@ import SwiftUI
 class ActivityManager : ObservableObject {
     @Published var activities : [Activity] = Activity.populate()
     
-    
+    func removeActivity(activity : Activity) {
+        if let index = activities.firstIndex(of: activity) {
+             activities.remove(at: index)
+         }
+    }
 }
