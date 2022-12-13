@@ -14,7 +14,6 @@ struct ActivitiesView: View {
     
     var body: some View {
         NavigationView {
-            
             ScrollView {
                 VStack {
                     ForEach(activityManager.activities) { activity in
@@ -26,10 +25,14 @@ struct ActivitiesView: View {
             .navigationTitle("Atividades")
             .toolbar {
                 Button(action: {
-                    print("Pressed me")
+                    showingNewActivity.toggle()
                 }) {
                     Image(systemName: "plus")
                 }
+            }
+            .sheet(isPresented: $showingNewActivity) {
+                NewActivity(showingNewActivity: $showingNewActivity)
+                    .environmentObject(activityManager)
             }
         }
     }
