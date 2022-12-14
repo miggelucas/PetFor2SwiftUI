@@ -11,22 +11,23 @@ typealias handlerAction = (() -> ())
 
 struct ActivityRow: View {
     @State var activity : Activity
-
+    
     var actionMenu : handlerAction
     
     var body: some View {
         HStack(alignment: .center, spacing: 5){
-            Button(action: {
-                activity.teamButtonTapped(team: .orange)
-            }) {
-                Image(systemName: "moonphase.new.moon")
-                    .foregroundColor(activity.orangeActive ? .orange : .gray)
-            }
+            
+            Image(systemName: "moonphase.new.moon")
+                .foregroundColor(activity.orangeActive ? .orange : .gray)
+                .onTapGesture {
+                    activity.teamButtonTapped(team: .orange)
+                }
+            
             
             Spacer()
             Menu(activity.name) {
                 Button("Excluir atividade", role: .destructive) {
-                 actionMenu()
+                    actionMenu()
                 }
             }
             .font(.headline)
@@ -35,13 +36,12 @@ struct ActivityRow: View {
             
             Spacer()
             
-            Button(action: {
-                activity.teamButtonTapped(team: .blue)
-                
-            }) {
-                Image(systemName: "moonphase.new.moon")
-                    .foregroundColor(activity.blueActive ? .blue : .gray)
-            }
+            Image(systemName: "moonphase.new.moon")
+                .foregroundColor(activity.blueActive ? .blue : .gray)
+                .onTapGesture {
+                    activity.teamButtonTapped(team: .blue)
+                }
+            
         }
         .padding()
     }

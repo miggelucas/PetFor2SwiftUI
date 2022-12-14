@@ -11,7 +11,9 @@ struct NewActivity: View {
     @EnvironmentObject var activityManager : ActivityManager
     
     @State var activityName : String = ""
+    @State var selection : String = ""
     @Binding var showingNewActivity : Bool
+    
     
     var body: some View {
         NavigationView {
@@ -33,13 +35,23 @@ struct NewActivity: View {
                     }
                     
                 }
+                .padding(.bottom)
                 
                 Text("Nova atividade")
-                    .font(.headline)
+                    .font(.title)
+                    .bold()
                 
                 TextField("Nome da atividade", text: $activityName)
                     .buttonBorderShape(.roundedRectangle)
                 
+                
+                Picker(selection: $selection, label: /*@START_MENU_TOKEN@*/Text("Picker")/*@END_MENU_TOKEN@*/) {
+                    /*@START_MENU_TOKEN@*/Text("1").tag(1)/*@END_MENU_TOKEN@*/
+                    /*@START_MENU_TOKEN@*/Text("2").tag(2)/*@END_MENU_TOKEN@*/
+                        
+                    
+                }
+                .pickerStyle(.navigationLink)
                 Spacer()
                 
             }

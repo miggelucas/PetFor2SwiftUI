@@ -51,3 +51,14 @@ struct Activity : Identifiable, Hashable {
 enum Team {
     case orange, blue, none
 }
+
+enum Weekday : String {
+    case monday = "segunda-feira"
+    case tuesday = "terça-feira"
+    case wednesday = "quarta-feira"
+    case thursday = "quinta-feira"
+    case friday = "sexta-feira"
+    case saturday = "sábado"
+    case sunday = "domingo"
+
+}

@@ -14,18 +14,16 @@ struct ActivitiesView: View {
     
     var body: some View {
         NavigationView {
-            ScrollView {
-                VStack {
-                    ForEach(activityManager.activities) { activity in
-                        ActivityRow(activity: activity, actionMenu: {
-                            activityManager.removeActivity(activity: activity)
-                        })
-                    }
+            Form {
+                ForEach(activityManager.activities) { activity in
+                    ActivityRow(activity: activity,
+                                actionMenu: {
+                        activityManager.removeActivity(activity: activity)
+                    })
                 }
             }
-            .padding()
+            .formStyle(.grouped)
             .navigationTitle("Atividades")
-            
             .toolbar {
                 Button(action: {
                     showingNewActivity.toggle()
