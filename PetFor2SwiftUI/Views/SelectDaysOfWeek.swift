@@ -8,15 +8,46 @@
 import SwiftUI
 
 struct SelectDaysOfWeek: View {
-    // going to implemente a multipicker view to chose days of the week for activity
+    @State var weekdays = Weekday.allCases
+    
+    @Binding var selectedItems : [Weekday]
     
     var body: some View {
-       Text("hhihi")
+        List {
+            ForEach(weekdays, id : \.self) { weekday in
+                Button {
+                    withAnimation {
+                        if selectedItems.contains(weekday) {
+                            selectedItems.removeAll { $0 == weekday}
+                        } else {
+                            selectedItems.append(weekday)
+                        }
+                    }
+                } label: {
+                    HStack {
+                        Text(weekday.rawValue)
+                            .foregroundColor(.primary)
+                            .font(.callout)
+                        
+                        Spacer()
+                        
+                        Image(systemName: "checkmark.circle")
+                            .opacity(self.selectedItems.contains(weekday) ? 1.0 : 0.0)
+                            .foregroundColor(.primary)
+                        
+                    }
+                    .buttonStyle(.plain)
+                    
+                }
+            }
+        }
+        .navigationTitle("Dias da semana")
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 
 struct SelectDaysOfWeek_Previews: PreviewProvider {
     static var previews: some View {
-        SelectDaysOfWeek()
+        SelectDaysOfWeek(selectedItems: .constant([.monday]))
     }
 }

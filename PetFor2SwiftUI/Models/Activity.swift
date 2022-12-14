@@ -52,7 +52,7 @@ enum Team {
     case orange, blue, none
 }
 
-enum Weekday : String {
+enum Weekday : String, CaseIterable {
     case monday = "segunda-feira"
     case tuesday = "terça-feira"
     case wednesday = "quarta-feira"

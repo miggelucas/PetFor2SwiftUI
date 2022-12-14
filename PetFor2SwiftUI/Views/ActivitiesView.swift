@@ -19,7 +19,8 @@ struct ActivitiesView: View {
                     ActivityRow(activity: activity,
                                 actionMenu: {
                         activityManager.removeActivity(activity: activity)
-                    })
+                    }
+                    )
                 }
             }
             .formStyle(.grouped)
