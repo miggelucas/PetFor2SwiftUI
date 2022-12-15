@@ -11,9 +11,18 @@ struct NewActivity: View {
     @EnvironmentObject var activityManager : ActivityManager
     
     @State var activityName : String = ""
-    @State var selection : [Weekday] = []
+    @State var weekdays : [Weekday] = []
+    
+    var weekdaysString : [String] {
+        var ax : [String] = []
+        for weekday in weekdays {
+            ax.append(weekday.rawValue)
+        }
+        return ax
+    }
     
     @Binding var showingNewActivity : Bool
+    
     
     
     var body: some View {
@@ -28,28 +37,61 @@ struct NewActivity: View {
                     
                     Section(header: Text("Dias da semana")) {
                         NavigationLink {
-                            SelectDaysOfWeek(selectedItems: $selection)
+                            SelectDaysOfWeek(selectedItems: $weekdays)
                         } label: {
-                            Text("Dias da semana")
+                            if weekdays.isEmpty {
+                                Text("Selecione os dias da semana")
+                                    .foregroundColor(.secondary)
+                                    .font(.callout)
+                            } else {
+                                Text(weekdaysString.joined(separator: " "))
+                                    .foregroundColor(.secondary)
+                                    .font(.callout)
+                            }
                         }
                     }
+                    
+                    
+                    HStack {
+                        Spacer()
+                        
+                        Button {
+                            let newActivity = Activity(name: activityName, team: .none)
+                            activityManager.activities.append(newActivity)
+                            showingNewActivity.toggle()
+                            
+                        } label: {
+                            Text("Adicionar")
+                                .font(.headline)
+                                .padding(.horizontal)
+                            
+                        }
+                        .buttonStyle(.borderedProminent)
+                        .multilineTextAlignment(.center)
+                        
+                        Spacer()
+                        
+                    }
+                    
                 }
+                
                 
             }
             .toolbar {
                 Button {
-                    let newActivity = Activity(name: activityName, team: .none)
-                    activityManager.activities.append(newActivity)
                     showingNewActivity.toggle()
                     
                 } label: {
-                    Text("Adicionar")
+                    Text("Cancelar")
+                    
                 }
-                .navigationTitle("Nova atividade")
+                
             }
+            .navigationTitle("Nova atividade")
             
         }
-    
+        
+        
     }
 }
 

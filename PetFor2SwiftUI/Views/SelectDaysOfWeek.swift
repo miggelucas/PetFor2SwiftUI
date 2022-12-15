@@ -47,7 +47,9 @@ struct SelectDaysOfWeek: View {
 }
 
 struct SelectDaysOfWeek_Previews: PreviewProvider {
+    static var upperView = NewActivity(showingNewActivity: .constant(true))
+    
     static var previews: some View {
-        SelectDaysOfWeek(selectedItems: .constant([.monday]))
+        SelectDaysOfWeek(selectedItems: upperView.$weekdays)
     }
 }
