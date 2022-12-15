@@ -8,8 +8,37 @@
 import SwiftUI
 
 struct SumaryView: View {
+    @EnvironmentObject var activityManager : ActivityManager
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack{
+            Text("Sumário")
+                .font(.title)
+            Spacer()
+            
+            VStack(alignment: .leading) {
+                Text("Total de Atividades")
+                ProgressView(value: 0.4)
+                    .accessibilityLabel("Barra de progresso Total")
+                
+            }
+            .padding()
+            
+            VStack(alignment: .leading) {
+                Text("Distribuição das atividades")
+                ProgressView(value: 0.4)
+                    .tint(.orange)
+                    .background(.blue)
+                    .accessibilityLabel("Distribuição das atividades")
+                
+            }
+            .padding()
+            
+         Spacer()
+        }
+        .padding()
+        
+        
     }
 }
 

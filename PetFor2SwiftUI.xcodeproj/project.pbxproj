@@ -50,13 +50,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		17D0A5B62946CB6D001EF4A5 /* Views */ = {
+		1735B22C294BA8F60059B45A /* Activities */ = {
 			isa = PBXGroup;
 			children = (
 				17D0A5B42946C9F7001EF4A5 /* ActivitiesView.swift */,
 				17D0A5BA2946D040001EF4A5 /* ActivityRow.swift */,
+			);
+			path = Activities;
+			sourceTree = "<group>";
+		};
+		1735B22D294BA9010059B45A /* NewActivity */ = {
+			isa = PBXGroup;
+			children = (
 				17D0A5BF29481C55001EF4A5 /* NewActivity.swift */,
 				17D0A5C129496C90001EF4A5 /* SelectDaysOfWeek.swift */,
+			);
+			path = NewActivity;
+			sourceTree = "<group>";
+		};
+		17D0A5B62946CB6D001EF4A5 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				1735B22C294BA8F60059B45A /* Activities */,
+				1735B22D294BA9010059B45A /* NewActivity */,
 				1735B22A294B67E20059B45A /* SumaryView.swift */,
 			);
 			path = Views;
