@@ -9,8 +9,9 @@ import SwiftUI
 
 struct ActivitiesView: View {
     
-    @StateObject var activityManager : ActivityManager
-    @State var showingNewActivity : Bool
+    @EnvironmentObject var activityManager : ActivityManager
+
+    @State var showingNewActivity : Bool = false
     
     var body: some View {
         NavigationView {
@@ -46,7 +47,8 @@ struct ActivitiesView: View {
 struct Activities_Previews: PreviewProvider {
     static var activityManager = ActivityManager()
     static var previews: some View {
-        ActivitiesView(activityManager: activityManager, showingNewActivity: false)
+        ActivitiesView()
+            .environmentObject(activityManager)
         
     }
 }

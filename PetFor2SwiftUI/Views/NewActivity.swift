@@ -23,8 +23,6 @@ struct NewActivity: View {
     
     @Binding var showingNewActivity : Bool
     
-    
-    
     var body: some View {
         NavigationView {
             VStack {
@@ -56,6 +54,7 @@ struct NewActivity: View {
                         Spacer()
                         
                         Button {
+                            // must do some validation before creating object
                             let newActivity = Activity(name: activityName, team: .none)
                             activityManager.activities.append(newActivity)
                             showingNewActivity.toggle()
@@ -97,7 +96,7 @@ struct NewActivity: View {
 
 
 struct NewActivity_Previews: PreviewProvider {
-    static var view = ActivitiesView(activityManager: ActivityManager(), showingNewActivity: true)
+    static var view = ActivitiesView()
     
     static var previews: some View {
         NewActivity(showingNewActivity: view.$showingNewActivity)
