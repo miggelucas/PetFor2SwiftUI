@@ -22,13 +22,13 @@ struct ContentView: View {
             ActivitiesView()
                 .environmentObject(activityManager)
                 .tabItem {
-                    Label("Menu", systemImage: "checklist")
+                    Label("Atividades", systemImage: "checklist")
                 }
             
-            ActivitiesView()
+            SumaryView()
                 .environmentObject(activityManager)
                 .tabItem {
-                    Label("Menu", systemImage: "list.dash")
+                    Label("Sumário", systemImage: "list.dash")
                 }
         }
         

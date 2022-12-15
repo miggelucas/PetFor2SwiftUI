@@ -10,12 +10,25 @@ import SwiftUI
 struct ActivitiesView: View {
     
     @EnvironmentObject var activityManager : ActivityManager
-
+    
     @State var showingNewActivity : Bool = false
+    @State var dayOfTheWeek : Weekday = .monday
     
     var body: some View {
         NavigationView {
             Form {
+                HStack {
+                    Spacer ()
+                    
+                    menuView(dayOfTheWeek: $dayOfTheWeek)
+                        .foregroundColor(.black)
+                        .font(.title3)
+                        .bold()
+                    Image(systemName: "arrow.down.square")
+                    
+                    Spacer()
+                }
+                
                 ForEach(activityManager.activities) { activity in
                     ActivityRow(activity: activity,
                                 actionMenu: {
@@ -43,6 +56,24 @@ struct ActivitiesView: View {
 }
 
 
+struct menuView : View {
+    @Binding var dayOfTheWeek : Weekday
+    
+    var body: some View {
+        Menu(dayOfTheWeek.rawValue) {
+            ForEach(Weekday.allCases, id: \.self) { weekday in
+                Button {
+                    dayOfTheWeek = weekday
+                } label: {
+                    Text(weekday.rawValue)
+                }
+                
+            }
+        }
+    }
+    
+    
+}
 
 struct Activities_Previews: PreviewProvider {
     static var activityManager = ActivityManager()

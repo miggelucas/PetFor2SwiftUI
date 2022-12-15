@@ -55,7 +55,7 @@ struct NewActivity: View {
                         
                         Button {
                             // must do some validation before creating object
-                            let newActivity = Activity(name: activityName, team: .none)
+                            let newActivity = Activity(name: activityName, weekdays: weekdays)
                             activityManager.activities.append(newActivity)
                             showingNewActivity.toggle()
                             
@@ -86,7 +86,7 @@ struct NewActivity: View {
                 }
                 
             }
-            .navigationTitle("Nova atividade")
+            .navigationTitle("Adicionar atividade")
             
         }
         
