@@ -33,7 +33,7 @@ struct ContentView: View {
         }
         
         
-        
+        // example using persistence
         //        NavigationView {
         //            List {
         //                ForEach(items) { item in

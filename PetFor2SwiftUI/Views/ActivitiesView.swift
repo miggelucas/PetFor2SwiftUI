@@ -23,7 +23,7 @@ struct ActivitiesView: View {
     var body: some View {
         NavigationView {
             Form {
-                HStack {
+                HStack(alignment: .center) {
                     Spacer ()
                     
                     menuView(dayOfTheWeek: $dayOfTheWeek)

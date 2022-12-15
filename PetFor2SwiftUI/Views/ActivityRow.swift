@@ -23,8 +23,8 @@ struct ActivityRow: View {
                     activity.teamButtonTapped(team: .orange)
                 }
             
-            
             Spacer()
+            
             Menu(activity.name) {
                 Button("Excluir atividade", role: .destructive) {
                     actionMenu()
@@ -32,9 +32,13 @@ struct ActivityRow: View {
             }
             .font(.headline)
             .foregroundColor(.black)
+            .multilineTextAlignment(.center)
+            .padding()
+            .overlay(
+                RoundedRectangle(cornerRadius: 8).stroke(activity.activityColor(), lineWidth: 2)
+                )
             
-            
-            Spacer()
+           Spacer()
             
             Image(systemName: "moonphase.new.moon")
                 .foregroundColor(activity.blueActive ? .blue : .gray)
@@ -43,7 +47,6 @@ struct ActivityRow: View {
                 }
             
         }
-        .padding()
     }
 }
 

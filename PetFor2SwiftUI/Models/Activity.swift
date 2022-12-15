@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 struct Activity : Identifiable, Hashable {
     var id = UUID()
@@ -27,6 +28,18 @@ struct Activity : Identifiable, Hashable {
         } else {
             return false
         }
+    }
+    
+    func activityColor() -> Color {
+        switch team {
+        case .orange:
+            return Color(.orange)
+        case .blue:
+            return Color(.blue)
+        case .none:
+            return Color(.clear)
+        }
+        
     }
     
     mutating func teamButtonTapped(team teamIncoming : Team) {
@@ -60,6 +73,6 @@ enum Weekday : String, CaseIterable {
     case thursday = "Quinta-feira"
     case friday = "Sexta-feira"
     case saturday = "Sábado"
-    case sunday = "Domingo"
+    case sunday = "domingo"
 
 }
