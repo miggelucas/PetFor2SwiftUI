@@ -14,6 +14,12 @@ struct ActivitiesView: View {
     @State var showingNewActivity : Bool = false
     @State var dayOfTheWeek : Weekday = .monday
     
+    var filteredActivities : [Activity] {
+        activityManager.activities.filter { activity in
+            activity.weekdays.contains(dayOfTheWeek)
+        }
+    }
+    
     var body: some View {
         NavigationView {
             Form {
@@ -29,7 +35,7 @@ struct ActivitiesView: View {
                     Spacer()
                 }
                 
-                ForEach(activityManager.activities) { activity in
+                ForEach(filteredActivities) { activity in
                     ActivityRow(activity: activity,
                                 actionMenu: {
                         activityManager.removeActivity(activity: activity)
