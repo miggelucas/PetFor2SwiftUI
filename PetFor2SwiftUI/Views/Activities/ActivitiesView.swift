@@ -14,10 +14,8 @@ struct ActivitiesView: View {
     @State var showingNewActivity : Bool = false
     @State var dayOfTheWeek : Weekday = .monday
     
-    var filteredActivities : [Activity] {
-        activityManager.activities.filter { activity in
-            activity.weekdays.contains(dayOfTheWeek)
-        }
+    var activities : [Activity] {
+        activityManager.activitiesFilter(forWeekday: dayOfTheWeek)
     }
     
     var body: some View {
@@ -35,13 +33,21 @@ struct ActivitiesView: View {
                     Spacer()
                 }
                 
-                ForEach(filteredActivities) { activity in
+                ForEach(activities) { activity in
                     ActivityRow(activity: activity,
                                 actionMenu: {
                         activityManager.removeActivity(activity: activity)
+                    })
+                    .swipeActions(edge: .trailing) {
+                        Button(role: .destructive) {
+                            activityManager.removeActivity(activity: activity)
+                        } label: {
+                            Image(systemName: "trash")
+                        }
+
                     }
-                    )
                 }
+                
             }
             .formStyle(.grouped)
             .navigationTitle("Atividades")
@@ -73,13 +79,11 @@ struct menuView : View {
                 } label: {
                     Text(weekday.rawValue)
                 }
-                
             }
         }
     }
-    
-    
 }
+
 
 struct Activities_Previews: PreviewProvider {
     static var activityManager = ActivityManager()
