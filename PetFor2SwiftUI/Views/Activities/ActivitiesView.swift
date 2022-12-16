@@ -27,7 +27,7 @@ struct ActivitiesView: View {
                     Spacer ()
                     
                     menuView(dayOfTheWeek: $dayOfTheWeek)
-                        .foregroundColor(.black)
+                        .foregroundColor(.primary)
                         .font(.title3)
                         .bold()
                     Image(systemName: "arrow.down.square")
