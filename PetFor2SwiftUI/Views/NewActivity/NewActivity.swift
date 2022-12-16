@@ -14,6 +14,7 @@ struct NewActivity: View {
     @State var weekdays : [Weekday] = []
     
     var weekdaysString : [String] {
+        // this looks crap. search how do better
         var ax : [String] = []
         for weekday in weekdays {
             ax.append(weekday.rawValue)
@@ -49,31 +50,32 @@ struct NewActivity: View {
                         }
                     }
                     
-                    
-                    HStack {
-                        Spacer()
-                        
-                        Button {
-                            // must do some validation before creating object
-                            let newActivity = Activity(name: activityName, weekdays: weekdays)
-                            activityManager.activities.append(newActivity)
-                            showingNewActivity.toggle()
-                            
-                        } label: {
-                            Text("Adicionar")
-                                .font(.headline)
-                                .padding(.horizontal)
-                            
-                        }
-                        .buttonStyle(.borderedProminent)
-                        .multilineTextAlignment(.center)
-                        
-                        Spacer()
-                        
-                    }
-                    
                 }
                 
+                HStack {
+                    Spacer()
+                    
+                    Button {
+                        // must do some validation before creating object
+                        let newActivity = Activity(name: activityName, weekdays: weekdays)
+                        activityManager.activities.append(newActivity)
+                        showingNewActivity.toggle()
+                        
+                    } label: {
+                        Text("Adicionar")
+                            .font(.headline)
+                            .padding(.horizontal)
+                        
+                    }
+                    .buttonStyle(.borderedProminent)
+                    .multilineTextAlignment(.center)
+                    
+                    Spacer()
+                    
+                }
+                .padding(.bottom, 50)
+                
+                Spacer()
                 
             }
             .toolbar {
