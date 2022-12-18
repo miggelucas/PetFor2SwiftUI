@@ -14,7 +14,10 @@ struct ActivitiesView: View {
     @State var showingNewActivity : Bool = false
     @State var dayOfTheWeek : Weekday = .monday
     
-    @State var activities : [Activity] = []
+    //@State var activities : [Activity] = []
+    var activities : [Activity] {
+        activityManager.activitiesWeekdayFilter(forWeekday: dayOfTheWeek)
+    }
        
     
     var body: some View {
@@ -58,9 +61,6 @@ struct ActivitiesView: View {
                 }) {
                     Image(systemName: "plus")
                 }
-            }
-            .onAppear {
-                activities = activityManager.activitiesWeekdayFilter(forWeekday: dayOfTheWeek)
             }
             .sheet(isPresented: $showingNewActivity) {
                 NewActivity(showingNewActivity: $showingNewActivity)

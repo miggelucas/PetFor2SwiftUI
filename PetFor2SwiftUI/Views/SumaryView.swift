@@ -9,7 +9,6 @@ import SwiftUI
 
 struct SumaryView: View {
     @EnvironmentObject var activityManager : ActivityManager
-    
 
     var body: some View {
         VStack{
@@ -19,9 +18,12 @@ struct SumaryView: View {
             
             Text("Total de atividade \(activityManager.activities.count)")
             
+            Text("Total de atividade \(activityManager.getRatioActivitiesDone())")
+            
             Text("Total de atividade azul \(activityManager.activitiesTeamFilter(forTeam: .blue).count)")
             
             Text("Total de atividade laranja \(activityManager.activitiesTeamFilter(forTeam: .orange).count)")
+            
             VStack(alignment: .leading) {
                 Text("Total de Atividades")
                 ProgressView(value: activityManager.getRatioActivitiesDone())
@@ -32,7 +34,7 @@ struct SumaryView: View {
             
             VStack(alignment: .leading) {
                 Text("Distribuição das atividades")
-                ProgressView(value: 0.4)
+                ProgressView(value: activityManager.getRatioActivitiesTeam(forTeam: .orange))
                     .tint(.orange)
                     .background(.blue)
                     .accessibilityLabel("Distribuição das atividades")

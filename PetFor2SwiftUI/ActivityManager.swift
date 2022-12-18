@@ -11,14 +11,23 @@ import SwiftUI
 class ActivityManager : ObservableObject {
     @Published var activities : [Activity] = Activity.populate()
     
-    func getRatioActivitiesDone() -> Double {
-        let totalActivies = activities.count
-        let activitiesTeam = activities.filter { activity in
-            activity.team == .blue || activity.team == .orange
-        }.count
+    func getRatioActivitiesDone() -> Float {
+        let total = Float(self.activities.count)
+        let activitiesTeams = Float(activitiesDoneFilter().count)
         
-        return Double(activitiesTeam / totalActivies)
+        return Float(activitiesTeams / total)
         
+    }
+    
+    func getRatioActivitiesTeam(forTeam team : Team) -> Float {
+        let total = Float(activitiesDoneFilter().count)
+        let activitiesTeam = Float(activitiesTeamFilter(forTeam: team).count)
+        
+        return Float(activitiesTeam / total)
+    }
+    
+    func activitiesDoneFilter() -> [Activity] {
+        self.activities.filter { $0.team == .orange || $0.team == .blue }
     }
     
     func activitiesTeamFilter(forTeam team : Team) -> [Activity] {
