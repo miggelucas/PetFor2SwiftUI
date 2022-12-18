@@ -42,7 +42,7 @@ struct Activity : Identifiable, Hashable {
         
     }
     
-    mutating func teamButtonTapped(team teamIncoming : Team) {
+    mutating func changeTeam(team teamIncoming : Team) {
         if team == teamIncoming {
             team = .none
         } else {
@@ -52,7 +52,7 @@ struct Activity : Identifiable, Hashable {
     
     static func populate() -> [Activity] {
         return [
-            Activity(name: "Passear com o cachorro",  weekdays: [.monday,.saturday,.sunday]),
+            Activity(name: "Passear com o cachorro",  team: .orange, weekdays: [.monday,.saturday,.sunday]),
             Activity(name: "Limpar caixinha de areia", weekdays: [.monday,.saturday,.sunday, .thursday]),
             Activity(name: "Comprar ração", weekdays: [.friday, .tuesday, .wednesday]),
             Activity(name: "Comprar remédio", weekdays: [.thursday,.tuesday,.sunday]),

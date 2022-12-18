@@ -10,15 +10,21 @@ import SwiftUI
 struct SumaryView: View {
     @EnvironmentObject var activityManager : ActivityManager
     
+
     var body: some View {
         VStack{
             Text("Sumário")
                 .font(.title)
             Spacer()
             
+            Text("Total de atividade \(activityManager.activities.count)")
+            
+            Text("Total de atividade azul \(activityManager.activitiesTeamFilter(forTeam: .blue).count)")
+            
+            Text("Total de atividade laranja \(activityManager.activitiesTeamFilter(forTeam: .orange).count)")
             VStack(alignment: .leading) {
                 Text("Total de Atividades")
-                ProgressView(value: 0.4)
+                ProgressView(value: activityManager.getRatioActivitiesDone())
                     .accessibilityLabel("Barra de progresso Total")
                 
             }
@@ -38,12 +44,13 @@ struct SumaryView: View {
         }
         .padding()
         
-        
     }
+
 }
 
 struct SumaryView_Previews: PreviewProvider {
     static var previews: some View {
         SumaryView()
+            .environmentObject(ActivityManager())
     }
 }

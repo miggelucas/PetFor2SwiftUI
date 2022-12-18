@@ -14,9 +14,8 @@ struct ActivitiesView: View {
     @State var showingNewActivity : Bool = false
     @State var dayOfTheWeek : Weekday = .monday
     
-    var activities : [Activity] {
-        activityManager.activitiesFilter(forWeekday: dayOfTheWeek)
-    }
+    @State var activities : [Activity] = []
+       
     
     var body: some View {
         NavigationView {
@@ -34,10 +33,12 @@ struct ActivitiesView: View {
                 }
                 
                 ForEach(activities) { activity in
+                    // how to pass this activity as a biding?
                     ActivityRow(activity: activity,
                                 actionMenu: {
                         activityManager.removeActivity(activity: activity)
                     })
+                    .environmentObject(activityManager)
                     .swipeActions(edge: .trailing) {
                         Button(role: .destructive) {
                             activityManager.removeActivity(activity: activity)
@@ -58,7 +59,9 @@ struct ActivitiesView: View {
                     Image(systemName: "plus")
                 }
             }
-            
+            .onAppear {
+                activities = activityManager.activitiesWeekdayFilter(forWeekday: dayOfTheWeek)
+            }
             .sheet(isPresented: $showingNewActivity) {
                 NewActivity(showingNewActivity: $showingNewActivity)
                     .environmentObject(activityManager)

@@ -10,6 +10,8 @@ import SwiftUI
 typealias handlerAction = (() -> ())
 
 struct ActivityRow: View {
+    @EnvironmentObject var activityManager : ActivityManager
+    
     @State var activity : Activity
     
     var actionMenu : handlerAction
@@ -20,7 +22,9 @@ struct ActivityRow: View {
             Image(systemName: "moonphase.new.moon")
                 .foregroundColor(activity.orangeActive ? .orange : .gray)
                 .onTapGesture {
-                    activity.teamButtonTapped(team: .orange)
+                    activityManager.changeActivityTeam(forActivity: activity, toTeam: .orange)
+                    // how to recivie activity as a binding from view?
+                    activity.changeTeam(team: .orange)
                 }
             
             HStack {
@@ -46,7 +50,9 @@ struct ActivityRow: View {
             Image(systemName: "moonphase.new.moon")
                 .foregroundColor(activity.blueActive ? .blue : .gray)
                 .onTapGesture {
-                    activity.teamButtonTapped(team: .blue)
+                    activityManager.changeActivityTeam(forActivity: activity, toTeam: .blue)
+                    // how to recivie activity as a binding from view?
+                    activity.changeTeam(team: .blue)
                 }
             
         }

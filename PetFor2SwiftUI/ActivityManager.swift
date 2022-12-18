@@ -11,16 +11,35 @@ import SwiftUI
 class ActivityManager : ObservableObject {
     @Published var activities : [Activity] = Activity.populate()
     
-    func activitiesFilter(forWeekday weekday : Weekday) -> [Activity] {
-        return activities.filter { activity in
-                activity.weekdays.contains(weekday)
-            }
+    func getRatioActivitiesDone() -> Double {
+        let totalActivies = activities.count
+        let activitiesTeam = activities.filter { activity in
+            activity.team == .blue || activity.team == .orange
+        }.count
+        
+        return Double(activitiesTeam / totalActivies)
+        
+    }
+    
+    func activitiesTeamFilter(forTeam team : Team) -> [Activity] {
+        self.activities.filter { $0.team == team }
+    }
+    
+    func activitiesWeekdayFilter(forWeekday weekday : Weekday) -> [Activity] {
+        activities.filter { activity in
+            activity.weekdays.contains(weekday)
+        }
+    }
+    
+    func changeActivityTeam(forActivity activity : Activity, toTeam team : Team) {
+        guard let index = activities.firstIndex(of: activity) else { return }
+        activities[index].changeTeam(team: team)
     }
     
     func removeActivity(activity : Activity) {
         if let index = activities.firstIndex(of: activity) {
-             activities.remove(at: index)
-         }
+            activities.remove(at: index)
+        }
     }
     
     // make func to validade addActivity
