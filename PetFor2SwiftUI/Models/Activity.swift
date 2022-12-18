@@ -33,9 +33,9 @@ struct Activity : Identifiable, Hashable {
     func activityColor() -> Color {
         switch team {
         case .orange:
-            return Color(.orange)
+            return Color(Team.orange.rawValue)
         case .blue:
-            return Color(.blue)
+            return Color(Team.blue.rawValue)
         case .none:
             return Color(.clear)
         }
@@ -62,8 +62,10 @@ struct Activity : Identifiable, Hashable {
     }
 }
 
-enum Team {
-    case orange, blue, none
+enum Team : String {
+    case orange = "orange"
+    case blue = "blue"
+    case none = "gray"
 }
 
 enum Weekday : String, CaseIterable {

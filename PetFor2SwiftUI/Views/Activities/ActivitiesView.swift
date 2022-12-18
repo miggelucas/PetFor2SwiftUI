@@ -24,15 +24,23 @@ struct ActivitiesView: View {
         NavigationView {
             Form {
                 HStack(alignment: .center) {
-                    Spacer ()
+                    Image("catty")
+
                     
-                    menuView(dayOfTheWeek: $dayOfTheWeek)
-                        .foregroundColor(.primary)
-                        .font(.title3)
-                        .bold()
-                    Image(systemName: "arrow.down.square")
+                    HStack {
+                        Spacer ()
+                        
+                        menuView(dayOfTheWeek: $dayOfTheWeek)
+                            .foregroundColor(.primary)
+                            .font(.title3)
+                            .bold()
+                        Image(systemName: "arrow.down.square")
+                        
+                        Spacer()
+                    }
                     
-                    Spacer()
+                    Image("doggy")
+                    
                 }
                 
                 ForEach(activities) { activity in

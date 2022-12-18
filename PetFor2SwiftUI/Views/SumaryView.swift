@@ -29,8 +29,8 @@ struct SumaryView: View {
             VStack(alignment: .leading) {
                 Text("Distribuição das atividades")
                 ProgressView(value: activityManager.getRatioActivitiesTeam(forTeam: .orange))
-                    .tint(.orange)
-                    .background(.blue)
+                    .tint(Color(Team.orange.rawValue))
+                    .background(Color(Team.blue.rawValue))
                     .accessibilityLabel("Distribuição das atividades")
                 
             }

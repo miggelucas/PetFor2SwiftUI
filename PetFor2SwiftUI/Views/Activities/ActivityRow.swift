@@ -20,7 +20,7 @@ struct ActivityRow: View {
         HStack(alignment: .center, spacing: 10){
             
             Image(systemName: "moonphase.new.moon")
-                .foregroundColor(activity.orangeActive ? .orange : .gray)
+                .foregroundColor(activity.orangeActive ? Color(Team.orange.rawValue) : .gray)
                 .onTapGesture {
                     activityManager.changeActivityTeam(forActivity: activity, toTeam: .orange)
                     // how to recivie activity as a binding from view?
@@ -48,7 +48,7 @@ struct ActivityRow: View {
             )
             
             Image(systemName: "moonphase.new.moon")
-                .foregroundColor(activity.blueActive ? .blue : .gray)
+                .foregroundColor(activity.blueActive ? Color(Team.blue.rawValue) : .gray)
                 .onTapGesture {
                     activityManager.changeActivityTeam(forActivity: activity, toTeam: .blue)
                     // how to recivie activity as a binding from view?
