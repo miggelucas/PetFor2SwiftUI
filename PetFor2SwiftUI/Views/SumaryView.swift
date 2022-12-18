@@ -16,13 +16,7 @@ struct SumaryView: View {
                 .font(.title)
             Spacer()
             
-            Text("Total de atividade \(activityManager.activities.count)")
             
-            Text("Total de atividade \(activityManager.getRatioActivitiesDone())")
-            
-            Text("Total de atividade azul \(activityManager.activitiesTeamFilter(forTeam: .blue).count)")
-            
-            Text("Total de atividade laranja \(activityManager.activitiesTeamFilter(forTeam: .orange).count)")
             
             VStack(alignment: .leading) {
                 Text("Total de Atividades")
