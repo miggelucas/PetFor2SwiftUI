@@ -78,3 +78,10 @@ enum Weekday : String, CaseIterable {
     case sunday = "domingo"
 
 }
+
+enum Category : String, CaseIterable {
+    case food = "Alimentação"
+    case health = "Saúde"
+    case hygiene = "Higiene"
+    case recreation = "Recreação"
+}

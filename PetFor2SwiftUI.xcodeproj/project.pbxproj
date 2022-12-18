@@ -20,6 +20,7 @@
 		17EDCA07294512A4001CD841 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17EDCA06294512A4001CD841 /* Preview Assets.xcassets */; };
 		17EDCA09294512A4001CD841 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17EDCA08294512A4001CD841 /* Persistence.swift */; };
 		17EDCA0C294512A4001CD841 /* PetFor2SwiftUI.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 17EDCA0A294512A4001CD841 /* PetFor2SwiftUI.xcdatamodeld */; };
+		17F81F11294FB82900FEEB16 /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F81F10294FB82900FEEB16 /* CategoryView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,7 @@
 		17EDCA06294512A4001CD841 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		17EDCA08294512A4001CD841 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		17EDCA0B294512A4001CD841 /* PetFor2SwiftUI.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PetFor2SwiftUI.xcdatamodel; sourceTree = "<group>"; };
+		17F81F10294FB82900FEEB16 /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 			isa = PBXGroup;
 			children = (
 				17D0A5BF29481C55001EF4A5 /* NewActivity.swift */,
+				17F81F10294FB82900FEEB16 /* CategoryView.swift */,
 				17D0A5C129496C90001EF4A5 /* SelectDaysOfWeek.swift */,
 			);
 			path = NewActivity;
@@ -206,6 +209,7 @@
 			files = (
 				17D0A5C029481C55001EF4A5 /* NewActivity.swift in Sources */,
 				17D0A5BD29479D1E001EF4A5 /* ActivityManager.swift in Sources */,
+				17F81F11294FB82900FEEB16 /* CategoryView.swift in Sources */,
 				17D0A5B82946CB8C001EF4A5 /* Activity.swift in Sources */,
 				17EDCA0C294512A4001CD841 /* PetFor2SwiftUI.xcdatamodeld in Sources */,
 				17D0A5BB2946D040001EF4A5 /* ActivityRow.swift in Sources */,

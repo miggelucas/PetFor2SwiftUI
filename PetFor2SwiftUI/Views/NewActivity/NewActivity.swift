@@ -12,6 +12,7 @@ struct NewActivity: View {
     
     @State var activityName : String = ""
     @State var weekdays : [Weekday] = []
+    @State var category : Category = .food
     
     var weekdaysString : [String] {
         // this looks crap. search how do better
@@ -30,8 +31,11 @@ struct NewActivity: View {
                 Form {
                     Section(header: Text("Nome")) {
                         TextField("Descreva a atividade", text: $activityName)
-                            .buttonBorderShape(.roundedRectangle)
+                            
+                            .tint(.accentColor)
+                            .foregroundColor(.primary)
                             .multilineTextAlignment(.leading)
+                            .textFieldStyle(.plain)
                     }
                     
                     Section(header: Text("Dias da semana")) {
@@ -50,32 +54,38 @@ struct NewActivity: View {
                         }
                     }
                     
-                }
-                
-                HStack {
-                    Spacer()
+                    Section(header: Text("Tipo da atividade")) {
+                       CategoryView(selection: $category)
+                            .pickerStyle(.menu)
+                    }
                     
-                    Button {
-                        // must do some validation before creating object
-                        let newActivity = Activity(name: activityName, weekdays: weekdays)
-                        activityManager.activities.append(newActivity)
-                        showingNewActivity.toggle()
+                    HStack {
+                        Spacer()
                         
-                    } label: {
-                        Text("Adicionar")
-                            .font(.headline)
-                            .padding(.horizontal)
+                        Button {
+                            // must do some validation before creating object
+                            let newActivity = Activity(name: activityName, weekdays: weekdays)
+                            activityManager.activities.append(newActivity)
+                            showingNewActivity.toggle()
+                            
+                        } label: {
+                            Text("Adicionar")
+                                .font(.headline)
+                                .padding(.horizontal)
+                            
+                        }
+                        .buttonStyle(.borderedProminent)
+                        .multilineTextAlignment(.center)
+                        
+                        Spacer()
                         
                     }
-                    .buttonStyle(.borderedProminent)
-                    .multilineTextAlignment(.center)
-                    
-                    Spacer()
+                    .formStyle(.grouped)
+                    .background(.clear)
                     
                 }
-                .padding(.bottom, 50)
                 
-                Spacer()
+                
                 
             }
             .toolbar {
@@ -91,10 +101,10 @@ struct NewActivity: View {
             .navigationTitle("Adicionar atividade")
             
         }
-        
-        
     }
+    
 }
+
 
 
 struct NewActivity_Previews: PreviewProvider {
