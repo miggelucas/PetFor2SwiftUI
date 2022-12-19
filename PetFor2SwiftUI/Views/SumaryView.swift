@@ -14,6 +14,15 @@ struct SumaryView: View {
         NavigationView {
             List {
                 VStack(alignment: .leading) {
+                    Text("Distribuição por time")
+                    ProgressView(value: activityManager.getRatioActivitiesTeam(forTeam: .orange))
+                        .tint(Color(Team.orange.rawValue))
+                        .background(Color(Team.blue.rawValue))
+                        .accessibilityLabel("Distribuição das atividades")
+                    
+                }
+                
+                VStack(alignment: .leading) {
                     Text("Total")
                     ProgressView(value: activityManager.getRatioActivitiesDone())
                         .accessibilityLabel("Barra de progresso Total")
@@ -29,20 +38,10 @@ struct SumaryView: View {
                         
                     }
                 }
-                
-                VStack(alignment: .leading) {
-                    Text("Distribuição por time")
-                    ProgressView(value: activityManager.getRatioActivitiesTeam(forTeam: .orange))
-                        .tint(Color(Team.orange.rawValue))
-                        .background(Color(Team.blue.rawValue))
-                        .accessibilityLabel("Distribuição das atividades")
-                    
-                }
-
-
             }
             .font(.title2)
             .bold()
+            .padding(.vertical)
             .navigationTitle("Sumário")
         }
 
