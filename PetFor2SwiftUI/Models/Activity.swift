@@ -62,27 +62,3 @@ struct Activity : Identifiable, Hashable {
         ]
     }
 }
-
-enum Team : String {
-    case orange = "orange"
-    case blue = "blue"
-    case none = "gray"
-}
-
-enum Weekday : String, CaseIterable {
-    case monday = "Segunda-feira"
-    case tuesday = "Terça-feira"
-    case wednesday = "Quarta-feira"
-    case thursday = "Quinta-feira"
-    case friday = "Sexta-feira"
-    case saturday = "Sábado"
-    case sunday = "domingo"
-
-}
-
-enum Category : String, CaseIterable {
-    case food = "Alimentação"
-    case health = "Saúde"
-    case hygiene = "Higiene"
-    case recreation = "Recreação"
-}

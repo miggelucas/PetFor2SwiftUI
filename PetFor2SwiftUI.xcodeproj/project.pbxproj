@@ -21,6 +21,9 @@
 		17EDCA09294512A4001CD841 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17EDCA08294512A4001CD841 /* Persistence.swift */; };
 		17EDCA0C294512A4001CD841 /* PetFor2SwiftUI.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 17EDCA0A294512A4001CD841 /* PetFor2SwiftUI.xcdatamodeld */; };
 		17F81F11294FB82900FEEB16 /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F81F10294FB82900FEEB16 /* CategoryView.swift */; };
+		17F81F14294FF12A00FEEB16 /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F81F13294FF12A00FEEB16 /* Team.swift */; };
+		17F81F16294FF15C00FEEB16 /* Weekday.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F81F15294FF15C00FEEB16 /* Weekday.swift */; };
+		17F81F18294FF16E00FEEB16 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F81F17294FF16E00FEEB16 /* Category.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +42,9 @@
 		17EDCA08294512A4001CD841 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		17EDCA0B294512A4001CD841 /* PetFor2SwiftUI.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PetFor2SwiftUI.xcdatamodel; sourceTree = "<group>"; };
 		17F81F10294FB82900FEEB16 /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
+		17F81F13294FF12A00FEEB16 /* Team.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
+		17F81F15294FF15C00FEEB16 /* Weekday.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weekday.swift; sourceTree = "<group>"; };
+		17F81F17294FF16E00FEEB16 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +124,7 @@
 			children = (
 				17EDC9FF294512A2001CD841 /* PetFor2SwiftUIApp.swift */,
 				17EDCA01294512A2001CD841 /* ContentView.swift */,
+				17F81F12294FF10700FEEB16 /* Enums */,
 				17D0A5BE2947A255001EF4A5 /* Controllers */,
 				17D0A5B92946CD86001EF4A5 /* Models */,
 				17D0A5B62946CB6D001EF4A5 /* Views */,
@@ -135,6 +142,16 @@
 				17EDCA06294512A4001CD841 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		17F81F12294FF10700FEEB16 /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				17F81F13294FF12A00FEEB16 /* Team.swift */,
+				17F81F15294FF15C00FEEB16 /* Weekday.swift */,
+				17F81F17294FF16E00FEEB16 /* Category.swift */,
+			);
+			path = Enums;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -209,13 +226,16 @@
 			files = (
 				17D0A5C029481C55001EF4A5 /* NewActivity.swift in Sources */,
 				17D0A5BD29479D1E001EF4A5 /* ActivityManager.swift in Sources */,
+				17F81F14294FF12A00FEEB16 /* Team.swift in Sources */,
 				17F81F11294FB82900FEEB16 /* CategoryView.swift in Sources */,
 				17D0A5B82946CB8C001EF4A5 /* Activity.swift in Sources */,
 				17EDCA0C294512A4001CD841 /* PetFor2SwiftUI.xcdatamodeld in Sources */,
 				17D0A5BB2946D040001EF4A5 /* ActivityRow.swift in Sources */,
 				17EDCA09294512A4001CD841 /* Persistence.swift in Sources */,
+				17F81F16294FF15C00FEEB16 /* Weekday.swift in Sources */,
 				17EDCA02294512A2001CD841 /* ContentView.swift in Sources */,
 				17D0A5B52946C9F7001EF4A5 /* ActivitiesView.swift in Sources */,
+				17F81F18294FF16E00FEEB16 /* Category.swift in Sources */,
 				17EDCA00294512A2001CD841 /* PetFor2SwiftUIApp.swift in Sources */,
 				1735B22B294B67E20059B45A /* SumaryView.swift in Sources */,
 				17D0A5C229496C90001EF4A5 /* SelectDaysOfWeek.swift in Sources */,
