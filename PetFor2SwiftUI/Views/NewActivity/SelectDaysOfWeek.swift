@@ -26,14 +26,14 @@ struct SelectDaysOfWeek: View {
                 } label: {
                     HStack {
                         Text(weekday.rawValue)
-                            .foregroundColor(.primary)
+                            .foregroundColor(self.selectedItems.contains(weekday) ? .accentColor : .primary)
                             .font(.callout)
                         
                         Spacer()
                         
                         Image(systemName: "checkmark.circle")
                             .opacity(self.selectedItems.contains(weekday) ? 1.0 : 0.0)
-                            .foregroundColor(.primary)
+                            .foregroundColor(.accentColor)
                         
                     }
                     .buttonStyle(.plain)

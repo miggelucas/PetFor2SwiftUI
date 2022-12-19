@@ -31,6 +31,7 @@ struct ActivityRow: View {
                 Spacer()
                 
                 Menu(activity.name) {
+                    Text("Categoria: \(activity.category.rawValue)")
                     Button("Excluir atividade", role: .destructive) {
                         actionMenu()
                     }

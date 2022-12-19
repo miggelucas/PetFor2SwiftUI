@@ -31,11 +31,11 @@ struct NewActivity: View {
                 Form {
                     Section(header: Text("Nome")) {
                         TextField("Descreva a atividade", text: $activityName)
-                            
                             .tint(.accentColor)
                             .foregroundColor(.primary)
                             .multilineTextAlignment(.leading)
                             .textFieldStyle(.plain)
+                            .textInputAutocapitalization(.sentences)
                     }
                     
                     Section(header: Text("Dias da semana")) {
@@ -47,11 +47,12 @@ struct NewActivity: View {
                                     .foregroundColor(.secondary)
                                     .font(.callout)
                             } else {
-                                Text(weekdaysString.joined(separator: " "))
-                                    .foregroundColor(.secondary)
+                                Text(weekdaysString.joined(separator: " - "))
+                                    .foregroundColor(.accentColor)
                                     .font(.callout)
                             }
                         }
+                        .tint(.accentColor)
                     }
                     
                     Section(header: Text("Tipo da atividade")) {
@@ -64,7 +65,7 @@ struct NewActivity: View {
                         
                         Button {
                             // must do some validation before creating object
-                            let newActivity = Activity(name: activityName, weekdays: weekdays)
+                            let newActivity = Activity(name: activityName, weekdays: weekdays, category: category)
                             activityManager.activities.append(newActivity)
                             showingNewActivity.toggle()
                             
@@ -78,15 +79,10 @@ struct NewActivity: View {
                         .multilineTextAlignment(.center)
                         
                         Spacer()
-                        
                     }
                     .formStyle(.grouped)
                     .background(.clear)
-                    
                 }
-                
-                
-                
             }
             .toolbar {
                 Button {
@@ -96,7 +92,6 @@ struct NewActivity: View {
                     Text("Cancelar")
                     
                 }
-                
             }
             .navigationTitle("Adicionar atividade")
             
