@@ -11,37 +11,42 @@ struct SumaryView: View {
     @EnvironmentObject var activityManager : ActivityManager
 
     var body: some View {
-        VStack{
-            Text("Sumário")
-                .font(.title)
-            Spacer()
-            
-            
-            
-            VStack(alignment: .leading) {
-                Text("Total de Atividades")
-                ProgressView(value: activityManager.getRatioActivitiesDone())
-                    .accessibilityLabel("Barra de progresso Total")
+        NavigationView {
+            List {
+                VStack(alignment: .leading) {
+                    Text("Total")
+                    ProgressView(value: activityManager.getRatioActivitiesDone())
+                        .accessibilityLabel("Barra de progresso Total")
+                    
+                }
                 
-            }
-            .padding()
-            
-            VStack(alignment: .leading) {
-                Text("Distribuição das atividades")
-                ProgressView(value: activityManager.getRatioActivitiesTeam(forTeam: .orange))
-                    .tint(Color(Team.orange.rawValue))
-                    .background(Color(Team.blue.rawValue))
-                    .accessibilityLabel("Distribuição das atividades")
                 
-            }
-            .padding()
-            
-         Spacer()
-        }
-        .padding()
-        
-    }
+                ForEach(Category.allCases, id: \.self) { category in
+                    VStack(alignment: .leading) {
+                        Text(category.rawValue)
+                        ProgressView(value: activityManager.getRatioActivitiesCategory(forCategory: category))
+                            .accessibilityLabel("Barra de progresso \(category.rawValue)")
+                        
+                    }
+                }
+                
+                VStack(alignment: .leading) {
+                    Text("Distribuição por time")
+                    ProgressView(value: activityManager.getRatioActivitiesTeam(forTeam: .orange))
+                        .tint(Color(Team.orange.rawValue))
+                        .background(Color(Team.blue.rawValue))
+                        .accessibilityLabel("Distribuição das atividades")
+                    
+                }
 
+
+            }
+            .font(.title2)
+            .bold()
+            .navigationTitle("Sumário")
+        }
+
+    }
 }
 
 struct SumaryView_Previews: PreviewProvider {

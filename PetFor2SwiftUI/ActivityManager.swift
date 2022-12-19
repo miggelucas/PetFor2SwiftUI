@@ -13,25 +13,37 @@ class ActivityManager : ObservableObject {
     
     func getRatioActivitiesDone() -> Float {
         let total = Float(self.activities.count)
-        let activitiesTeams = Float(activitiesDoneFilter().count)
+        let activitiesTeams = Float(activitiesDoneFilter(forActivities: self.activities).count)
         
         return Float(activitiesTeams / total)
         
     }
     
     func getRatioActivitiesTeam(forTeam team : Team) -> Float {
-        let total = Float(activitiesDoneFilter().count)
+        let total = Float(activitiesDoneFilter(forActivities: self.activities).count)
         let activitiesTeam = Float(activitiesTeamFilter(forTeam: team).count)
         
         return Float(activitiesTeam / total)
     }
     
-    func activitiesDoneFilter() -> [Activity] {
-        self.activities.filter { $0.team == .orange || $0.team == .blue }
+    func getRatioActivitiesCategory(forCategory category : Category) -> Float {
+        let activitiesForCategory = activitiesCategoryFilter(forCategory: category)
+        let activitiesForCategoryTotal = Float(activitiesForCategory.count)
+        let activitiesForCategoryDone = Float(activitiesDoneFilter(forActivities: activitiesForCategory).count)
+        
+        return Float( activitiesForCategoryDone / activitiesForCategoryTotal)
+    }
+    
+    func activitiesDoneFilter(forActivities activities : [Activity]) -> [Activity] {
+        activities.filter { $0.team == .orange || $0.team == .blue }
     }
     
     func activitiesTeamFilter(forTeam team : Team) -> [Activity] {
         self.activities.filter { $0.team == team }
+    }
+    
+    func activitiesCategoryFilter(forCategory category : Category) -> [Activity] {
+        self.activities.filter { $0.category == category }
     }
     
     func activitiesWeekdayFilter(forWeekday weekday : Weekday) -> [Activity] {
