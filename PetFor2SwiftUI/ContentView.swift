@@ -101,6 +101,7 @@ private let itemFormatter: DateFormatter = {
 struct ContentView_Previews: PreviewProvider {
     static var activityManager = ActivityManager()
     static var previews: some View {
-        ContentView(activityManager: activityManager).environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+        ContentView(activityManager: activityManager)
+            .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
     }
 }
