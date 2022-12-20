@@ -46,24 +46,45 @@ struct CoreDataTesteView: View {
                     } label: {
                         Text("Profissão")
                     }
+                    .pickerStyle(.menu)
                 }
-                
-                
-                Button("Adicionar Persona") {
-                    withAnimation {
-                        let person = Person(context: viewContext)
-                    }
-                }
-                
             }
             
+            Section {
+                
+                HStack {
+                    Spacer()
+                    
+                    Button("Adicionar Persona") {
+                        withAnimation {
+                            if name != "" {
+                                let person = Person(context: viewContext)
+                                person.name = name
+                                person.job = job.rawValue
+                                person.age = Int16(age)
+                            }
+                            do {
+                                try viewContext.save()
+                            }
+                            catch {
+                                print("deu ruim")
+                            }
+                        }
+                        
+                    }
+                    
+                    Spacer()
+                }
+                
+                
+            }
         }
     }
 }
-
-
-struct CoreDataTesteView_Previews: PreviewProvider {
-    static var previews: some View {
-        CoreDataTesteView()
+    
+    
+    struct CoreDataTesteView_Previews: PreviewProvider {
+        static var previews: some View {
+            CoreDataTesteView()
+        }
     }
-}
