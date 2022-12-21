@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct CoreDataTesteView: View {
+struct addPersonView: View {
     @Environment(\.managedObjectContext) var viewContext
     
     @FetchRequest(sortDescriptors: []) private var items: FetchedResults<Person>
@@ -83,8 +83,8 @@ struct CoreDataTesteView: View {
 }
     
     
-    struct CoreDataTesteView_Previews: PreviewProvider {
+    struct addPersonView_Preview: PreviewProvider {
         static var previews: some View {
-            CoreDataTesteView()
+            addPersonView()
         }
     }
