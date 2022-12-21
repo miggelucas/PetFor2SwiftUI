@@ -9,15 +9,22 @@ import SwiftUI
 
 struct addPersonView: View {
     @Environment(\.managedObjectContext) var viewContext
+    @Environment(\.dismiss) var dismiss
     
-    @FetchRequest(sortDescriptors: []) private var items: FetchedResults<Person>
+    @FetchRequest(sortDescriptors: []) private var persons: FetchedResults<Person>
     
     @State var name : String = ""
     @State var age : Int = 0
     @State var job : Job = .Manager
+    @State var experience : Experience = .Trainee
     
     enum Job : String, CaseIterable, Identifiable {
-        case Manager, Intern, Engineer
+        case Manager, Designer, Engineer
+        var id: Self { self }
+    }
+    
+    enum Experience : String, CaseIterable, Identifiable {
+        case Trainee, Junior, Middle, Senior
         var id: Self { self }
     }
     
@@ -47,6 +54,15 @@ struct addPersonView: View {
                         Text("Profissão")
                     }
                     .pickerStyle(.menu)
+                    
+                    Picker(selection: $experience) {
+                        ForEach(Experience.allCases, id: \.self) { experience in
+                            Text(experience.rawValue).tag(experience)
+                        }
+                    } label: {
+                        Text("Experiência")
+                    }
+                    .pickerStyle(.menu)
                 }
             }
             
@@ -56,7 +72,9 @@ struct addPersonView: View {
                     Spacer()
                     
                     Button("Adicionar Persona") {
+                        dismiss()
                         withAnimation {
+                            
                             if name != "" {
                                 let person = Person(context: viewContext)
                                 person.name = name

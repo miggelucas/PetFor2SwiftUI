@@ -8,8 +8,33 @@
 import SwiftUI
 
 struct PersonListView: View {
+    @Environment(\.managedObjectContext) var viewContext
+    
+    @FetchRequest(sortDescriptors: []) private var persons: FetchedResults<Person>
+    @State var showingAddPerson = false
+    
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationView {
+            List(persons) { person in
+                Text(person.name ?? "Desconhecido")
+            }
+            .navigationTitle("Pessoas")
+            .toolbar {
+                ToolbarItem(placement: .confirmationAction) {
+                    Button {
+                        showingAddPerson.toggle()
+                    } label: {
+                        Image(systemName: "plus")
+                    }
+
+                }
+            }
+            
+            .sheet(isPresented: $showingAddPerson) {
+                addPersonView()
+            }
+        }
     }
 }
 

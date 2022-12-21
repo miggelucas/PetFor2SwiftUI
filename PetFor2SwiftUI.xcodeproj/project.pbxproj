@@ -14,6 +14,7 @@
 		17D0A5BD29479D1E001EF4A5 /* ActivityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D0A5BC29479D1E001EF4A5 /* ActivityManager.swift */; };
 		17D0A5C029481C55001EF4A5 /* NewActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D0A5BF29481C55001EF4A5 /* NewActivity.swift */; };
 		17D0A5C229496C90001EF4A5 /* SelectDaysOfWeek.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D0A5C129496C90001EF4A5 /* SelectDaysOfWeek.swift */; };
+		17DDC8A32953440D00F79E2C /* PersonListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17DDC8A22953440D00F79E2C /* PersonListView.swift */; };
 		17EDCA00294512A2001CD841 /* PetFor2SwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17EDC9FF294512A2001CD841 /* PetFor2SwiftUIApp.swift */; };
 		17EDCA02294512A2001CD841 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17EDCA01294512A2001CD841 /* ContentView.swift */; };
 		17EDCA04294512A4001CD841 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17EDCA03294512A4001CD841 /* Assets.xcassets */; };
@@ -24,7 +25,7 @@
 		17F81F14294FF12A00FEEB16 /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F81F13294FF12A00FEEB16 /* Team.swift */; };
 		17F81F16294FF15C00FEEB16 /* Weekday.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F81F15294FF15C00FEEB16 /* Weekday.swift */; };
 		17F81F18294FF16E00FEEB16 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F81F17294FF16E00FEEB16 /* Category.swift */; };
-		17F81F2A29524AF000FEEB16 /* CoreDataTesteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F81F2929524AF000FEEB16 /* CoreDataTesteView.swift */; };
+		17F81F2A29524AF000FEEB16 /* addPersonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F81F2929524AF000FEEB16 /* addPersonView.swift */; };
 		17F81F2D29524EBF00FEEB16 /* Person+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F81F2B29524EBF00FEEB16 /* Person+CoreDataClass.swift */; };
 		17F81F2E29524EBF00FEEB16 /* Person+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F81F2C29524EBF00FEEB16 /* Person+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
@@ -37,6 +38,7 @@
 		17D0A5BC29479D1E001EF4A5 /* ActivityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityManager.swift; sourceTree = "<group>"; };
 		17D0A5BF29481C55001EF4A5 /* NewActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewActivity.swift; sourceTree = "<group>"; };
 		17D0A5C129496C90001EF4A5 /* SelectDaysOfWeek.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectDaysOfWeek.swift; sourceTree = "<group>"; };
+		17DDC8A22953440D00F79E2C /* PersonListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonListView.swift; sourceTree = "<group>"; };
 		17EDC9FC294512A2001CD841 /* PetFor2SwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PetFor2SwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		17EDC9FF294512A2001CD841 /* PetFor2SwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetFor2SwiftUIApp.swift; sourceTree = "<group>"; };
 		17EDCA01294512A2001CD841 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -48,7 +50,7 @@
 		17F81F13294FF12A00FEEB16 /* Team.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
 		17F81F15294FF15C00FEEB16 /* Weekday.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weekday.swift; sourceTree = "<group>"; };
 		17F81F17294FF16E00FEEB16 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
-		17F81F2929524AF000FEEB16 /* CoreDataTesteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataTesteView.swift; sourceTree = "<group>"; };
+		17F81F2929524AF000FEEB16 /* addPersonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addPersonView.swift; sourceTree = "<group>"; };
 		17F81F2B29524EBF00FEEB16 /* Person+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Person+CoreDataClass.swift"; sourceTree = "<group>"; };
 		17F81F2C29524EBF00FEEB16 /* Person+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Person+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -89,7 +91,7 @@
 				1735B22C294BA8F60059B45A /* Activities */,
 				1735B22D294BA9010059B45A /* NewActivity */,
 				1735B22A294B67E20059B45A /* SumaryView.swift */,
-				17F81F2929524AF000FEEB16 /* CoreDataTesteView.swift */,
+				17DDC8A1295260F500F79E2C /* CoreDataTest */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -110,6 +112,15 @@
 				17D0A5BC29479D1E001EF4A5 /* ActivityManager.swift */,
 			);
 			name = Controllers;
+			sourceTree = "<group>";
+		};
+		17DDC8A1295260F500F79E2C /* CoreDataTest */ = {
+			isa = PBXGroup;
+			children = (
+				17F81F2929524AF000FEEB16 /* addPersonView.swift */,
+				17DDC8A22953440D00F79E2C /* PersonListView.swift */,
+			);
+			path = CoreDataTest;
 			sourceTree = "<group>";
 		};
 		17EDC9F3294512A2001CD841 = {
@@ -236,10 +247,11 @@
 				17D0A5C029481C55001EF4A5 /* NewActivity.swift in Sources */,
 				17D0A5BD29479D1E001EF4A5 /* ActivityManager.swift in Sources */,
 				17F81F2E29524EBF00FEEB16 /* Person+CoreDataProperties.swift in Sources */,
+				17DDC8A32953440D00F79E2C /* PersonListView.swift in Sources */,
 				17F81F14294FF12A00FEEB16 /* Team.swift in Sources */,
 				17F81F11294FB82900FEEB16 /* CategoryView.swift in Sources */,
 				17D0A5B82946CB8C001EF4A5 /* Activity.swift in Sources */,
-				17F81F2A29524AF000FEEB16 /* CoreDataTesteView.swift in Sources */,
+				17F81F2A29524AF000FEEB16 /* addPersonView.swift in Sources */,
 				17EDCA0C294512A4001CD841 /* PetFor2SwiftUI.xcdatamodeld in Sources */,
 				17D0A5BB2946D040001EF4A5 /* ActivityRow.swift in Sources */,
 				17EDCA09294512A4001CD841 /* Persistence.swift in Sources */,
