@@ -19,6 +19,8 @@ struct PersonListView: View {
             List(persons) { person in
                 Text(person.name ?? "Desconhecido")
             }
+            
+            
             .navigationTitle("Pessoas")
             .toolbar {
                 ToolbarItem(placement: .confirmationAction) {

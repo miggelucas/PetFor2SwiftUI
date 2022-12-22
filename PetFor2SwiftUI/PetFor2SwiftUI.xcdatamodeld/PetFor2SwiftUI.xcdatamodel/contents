@@ -5,6 +5,7 @@
     </entity>
     <entity name="Person" representedClassName="Person" syncable="YES">
         <attribute name="age" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="experience" optional="YES" attributeType="String"/>
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="job" optional="YES" attributeType="String"/>
         <attribute name="name" optional="YES" attributeType="String"/>

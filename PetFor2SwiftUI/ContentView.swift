@@ -30,6 +30,11 @@ struct ContentView: View {
                 .tabItem {
                     Label("Sumário", systemImage: "list.dash")
                 }
+            
+            PersonListView()
+                .tabItem {
+                    Label("CoreData", systemImage: "questionmark.folder.fill")
+                }
         }
         
         
