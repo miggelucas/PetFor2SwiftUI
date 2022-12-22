@@ -14,12 +14,27 @@ struct PersonListView: View {
     @State var showingAddPerson = false
     
     
+    func removePerson(at offsets: IndexSet) {
+        for index in offsets {
+            let person = persons[index]
+            viewContext.delete(person)
+        }
+        do {
+            try viewContext.save()
+        } catch {
+            // handle the Core Data error
+        }
+    }
+    
+    
     var body: some View {
         NavigationView {
-            List(persons) { person in
-                Text(person.name ?? "Desconhecido")
+            List {
+                ForEach(persons) { person in
+                    Text(person.name ?? "Desconhecido")
+                }
+                .onDelete(perform: removePerson)
             }
-            
             
             .navigationTitle("Pessoas")
             .toolbar {
@@ -29,7 +44,7 @@ struct PersonListView: View {
                     } label: {
                         Image(systemName: "plus")
                     }
-
+                    
                 }
             }
             
@@ -39,6 +54,7 @@ struct PersonListView: View {
         }
     }
 }
+
 
 struct PersonListView_Previews: PreviewProvider {
     static var previews: some View {
