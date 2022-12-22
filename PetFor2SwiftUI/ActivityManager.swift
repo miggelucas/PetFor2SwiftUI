@@ -10,6 +10,12 @@ import SwiftUI
 
 class ActivityManager : ObservableObject {
     @Published var activities : [Activity] = Activity.populate()
+
+    @Published var filteredActivities : [Activity] = []
+    
+    init() {
+        self.filteredActivities = activitiesWeekdayFilter(forWeekday: .monday)
+    }
     
     func getRatioActivitiesDone() -> Float {
         let total = Float(self.activities.count)

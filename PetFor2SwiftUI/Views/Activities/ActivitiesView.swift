@@ -22,7 +22,7 @@ struct ActivitiesView: View {
     
     var body: some View {
         NavigationView {
-            Form {
+            Form(content: {
                 HStack(alignment: .center) {
                     Image("catty")
 
@@ -43,16 +43,16 @@ struct ActivitiesView: View {
                     
                 }
                 
-                ForEach(activities) { activity in
+                ForEach($activityManager.filteredActivities) { activity in
                     // how to pass this activity as a biding?
                     ActivityRow(activity: activity,
                                 actionMenu: {
-                        activityManager.removeActivity(activity: activity)
+                        activityManager.removeActivity(activity: activity.wrappedValue)
                     })
                     .environmentObject(activityManager)
                     .swipeActions(edge: .trailing) {
                         Button(role: .destructive) {
-                            activityManager.removeActivity(activity: activity)
+                            activityManager.removeActivity(activity: activity.wrappedValue)
                         } label: {
                             Image(systemName: "trash")
                         }
@@ -60,7 +60,7 @@ struct ActivitiesView: View {
                     }
                 }
                 
-            }
+            })
             .formStyle(.grouped)
             .navigationTitle("Atividades")
             .toolbar {

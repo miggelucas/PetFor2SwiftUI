@@ -12,7 +12,7 @@ typealias handlerAction = (() -> ())
 struct ActivityRow: View {
     @EnvironmentObject var activityManager : ActivityManager
     
-    @State var activity : Activity
+    @Binding var activity : Activity
     
     var actionMenu : handlerAction
     
@@ -63,6 +63,6 @@ struct ActivityRow: View {
 struct ActivityRow_Previews: PreviewProvider {
     static var activities = Activity.populate()
     static var previews: some View {
-        ActivityRow(activity: activities[0], actionMenu: {})
+        ActivityRow(activity: .constant(activities[0]), actionMenu: {})
     }
 }
