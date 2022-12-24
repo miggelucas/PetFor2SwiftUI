@@ -15,12 +15,7 @@ struct NewActivity: View {
     @State var category : Category = .food
     
     var weekdaysString : [String] {
-        // this looks crap. search how do better
-        var ax : [String] = []
-        for weekday in weekdays {
-            ax.append(weekday.rawValue)
-        }
-        return ax
+        weekdays.map { $0.rawValue }
     }
     
     @Binding var showingNewActivity : Bool

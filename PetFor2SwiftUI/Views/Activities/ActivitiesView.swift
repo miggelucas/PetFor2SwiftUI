@@ -12,13 +12,12 @@ struct ActivitiesView: View {
     @EnvironmentObject var activityManager : ActivityManager
     
     @State var showingNewActivity : Bool = false
-    @State var dayOfTheWeek : Weekday = .monday
-    
-    //@State var activities : [Activity] = []
-    var activities : [Activity] {
-        activityManager.activitiesWeekdayFilter(forWeekday: dayOfTheWeek)
+    @State var dayOfTheWeek : Weekday = .monday {
+        didSet {
+            //why this won't work?
+            //activityManager.changeFilteredActivities(forWeekday: dayOfTheWeek)
+        }
     }
-       
     
     var body: some View {
         NavigationView {
@@ -26,7 +25,6 @@ struct ActivitiesView: View {
                 HStack(alignment: .center) {
                     Image("catty")
 
-                    
                     HStack {
                         Spacer ()
                         
@@ -40,11 +38,9 @@ struct ActivitiesView: View {
                     }
                     
                     Image("doggy")
-                    
                 }
                 
                 ForEach($activityManager.filteredActivities) { activity in
-                    // how to pass this activity as a biding?
                     ActivityRow(activity: activity,
                                 actionMenu: {
                         activityManager.removeActivity(activity: activity.wrappedValue)
@@ -81,12 +77,14 @@ struct ActivitiesView: View {
 
 struct menuView : View {
     @Binding var dayOfTheWeek : Weekday
+    @EnvironmentObject var activityManager : ActivityManager
     
     var body: some View {
         Menu(dayOfTheWeek.rawValue) {
             ForEach(Weekday.allCases, id: \.self) { weekday in
                 Button {
                     dayOfTheWeek = weekday
+                    activityManager.changeFilteredActivities(forWeekday: dayOfTheWeek)
                 } label: {
                     Text(weekday.rawValue)
                 }

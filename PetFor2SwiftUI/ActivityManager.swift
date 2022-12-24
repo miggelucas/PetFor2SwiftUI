@@ -17,6 +17,7 @@ class ActivityManager : ObservableObject {
         self.filteredActivities = activitiesWeekdayFilter(forWeekday: .monday)
     }
     
+    //MARK: - Sumary related
     func getRatioActivitiesDone() -> Float {
         let total = Float(self.activities.count)
         let activitiesTeams = Float(activitiesDoneFilter(forActivities: self.activities).count)
@@ -40,8 +41,13 @@ class ActivityManager : ObservableObject {
         return Float( activitiesForCategoryDone / activitiesForCategoryTotal)
     }
     
+    //MARK: - filters
     func activitiesDoneFilter(forActivities activities : [Activity]) -> [Activity] {
         activities.filter { $0.team == .orange || $0.team == .blue }
+    }
+    
+    func changeFilteredActivities(forWeekday weekday : Weekday) {
+        self.filteredActivities = activitiesWeekdayFilter(forWeekday: weekday)
     }
     
     func activitiesTeamFilter(forTeam team : Team) -> [Activity] {
@@ -58,6 +64,7 @@ class ActivityManager : ObservableObject {
         }
     }
     
+    //MARK: - manager
     func changeActivityTeam(forActivity activity : Activity, toTeam team : Team) {
         guard let index = activities.firstIndex(of: activity) else { return }
         activities[index].changeTeam(team: team)
